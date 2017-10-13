@@ -17,5 +17,9 @@ db.create_all()
 
 
 @app.route('/')
-def home():
+def index():
 	return render_template('index.html')
+
+@app.route('/newpost/', methods=["POST"])
+def newpost():
+	print(request.form)
