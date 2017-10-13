@@ -6,6 +6,17 @@
 	margin-bottom:8rem;
 }
 
+#footer{
+	margin-bottom: 3rem;
+}
+
+.manifesto {
+	margin:0!important;
+	padding:0!important;
+	font-size: 1em;
+	text-transform: none !important;
+}
+
 .header {
 	line-height:5em;
 	padding:3rem;
@@ -22,7 +33,7 @@
 	max-height:5em;
 }
 
-.form-text{
+.edgeless{
 	border: none transparent!important;
 }
 
