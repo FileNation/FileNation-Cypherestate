@@ -4,6 +4,10 @@
 	width: 50%;
 }
 
-#header {
+.header {
 	line-height:1em;
+}
+
+.header > .logo {
+	max-height:1em;
 }
