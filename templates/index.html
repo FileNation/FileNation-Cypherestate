@@ -6,16 +6,26 @@
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
 <div id="new-post">
-	<form action="/" id="new-post-form">
+	<form action="/new_post/" method="POST" id="new-post-form">
 		<h2>Start Writing Today!</h2>
 		<br>
-		<h3><input class="form-text" type="text" name="title" maxlength="56" placeholder="Title"></h3>
-		<textarea placeholder="The body of your article starts here..." id="text" name="body"
-		maxlength="65536" class="form-text body-post button-clear">
+		<h3><input class="form-text edgeless" type="text" name="title" maxlength="56" placeholder="Title"></h3>
+		<textarea placeholder="The body of your article starts here..." id="text" name="text"
+		maxlength="65536" class="form-text edgeless body-post button-clear">
 			
 		</textarea>
 		<br><br>
-	    <input class="button-primary float-right publish" type="submit" value="Publish">
+
+		<!-- Float either directions -->
+		<div class="float-left">
+			<input class="form-text" type="text" name="hash" maxlength="40" placeholder="Your key">
+		</div>
+		<div class="float-right">
+			<!-- Outlined Button -->
+			<input class="button-primary float-right publish" type="submit" name="send" value="Publish">
+		</div>
+
+	    
 	</form>
 	<script>
 		var simplemde = new SimpleMDE({ element: document.getElementById("text") });
