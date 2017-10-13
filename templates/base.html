@@ -12,10 +12,10 @@
 
 <body>
  	<!-- Clear any float  -->
-	<div class="clearfix">
+	<div class="clearfix header">
 	  <!-- Float either directions -->
 	  <div class="float-left">
-	  	<img src="/static/img/provisional_icon.png">
+	  	<img src="/static/img/provisional_icon.png" class="logo">
 	  </div>
 	  <div class="float-right">
 	  	<!-- Outlined Button -->
@@ -23,8 +23,8 @@
 	  </div>
 	</div>
 
+  {% block content %}
   	
-  </header>	
   <div class="container center" id="container">
 
     <!-- Float either directions -->
