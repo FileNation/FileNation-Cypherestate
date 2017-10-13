@@ -2,11 +2,14 @@
 #new-post {
 	margin: auto;
 	width: 50%;
+	font-size: 1.2em;
+	margin-bottom:8rem;
 }
 
 .header {
 	line-height:5em;
 	padding:3rem;
+	margin-bottom:-3rem;
 	margin-right:7.5%;
 	margin-left:2.5%;
 }
@@ -17,4 +20,12 @@
 
 .logo {
 	max-height:5em;
+}
+
+.form-text{
+	border: none transparent!important;
+}
+
+.body-post{
+	min-height:50%;
 }

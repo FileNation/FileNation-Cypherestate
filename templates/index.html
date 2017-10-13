@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
 <div id="new-post">
 	<form action="/" id="new-post-form">
-		<p class="form-title">NEW ESTATE</p>
-		<input class="form-text" type="text" name="title" maxlength="50" placeholder="Title">
+		<h2>Start Writing Today!</h2>
 		<br>
-		<input class="form-text" type="text" name="title" maxlength="65536" placeholder="Text">
-		<input class="form-text" type="text" name="title" maxlength="" placeholder="Text">
+		<h3><input class="form-text" type="text" name="title" maxlength="56" placeholder="Title"></h3>
+		<textarea placeholder="The body of your article starts here..." id="text" name="body"
+		maxlength="65536" class="form-text body-post button-clear">
+			
+		</textarea>
+		<br><br>
+	    <input class="button-primary float-right publish" type="submit" value="Publish">
 	</form>
+	<script>
+		var simplemde = new SimpleMDE({ element: document.getElementById("text") });
+	</script>
 </div>
 {% endblock %}
