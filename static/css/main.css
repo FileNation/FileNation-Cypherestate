@@ -5,9 +5,16 @@
 }
 
 .header {
-	line-height:1em;
+	line-height:5em;
+	padding:3rem;
+	margin-right:7.5%;
+	margin-left:2.5%;
 }
 
-.header > .logo {
-	max-height:1em;
+.header > * {
+	vertical-align:middle;
+}
+
+.logo {
+	max-height:5em;
 }
