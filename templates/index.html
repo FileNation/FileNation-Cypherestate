@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hello!</h1>
-<h2>Flask StartApp</h2>
+<div id="new-post">
+	<form action="/" id="new-post-form">
+		<p class="form-title">NEW ESTATE</p>
+		<input class="form-text" type="text" name="title" maxlength="50" placeholder="Title">
+		<br>
+		<input class="form-text" type="text" name="title" maxlength="65536" placeholder="Text">
+		<input class="form-text" type="text" name="title" maxlength="" placeholder="Text">
+	</form>
+</div>
 {% endblock %}
