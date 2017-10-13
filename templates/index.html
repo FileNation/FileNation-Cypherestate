@@ -9,21 +9,12 @@
 	<form action="/new_post/" method="POST" id="new-post-form">
 		<h2>Start Writing Today!</h2>
 		<br>
-		<h3><input class="form-text edgeless" type="text" name="title" maxlength="56" placeholder="Title"></h3>
+		<h3><input class="form-text edgeless" type="text" name="title" maxlength="56" placeholder="Title" required></h3>
 		<textarea placeholder="The body of your article starts here..." id="text" name="text"
-		maxlength="65536" class="form-text edgeless body-post button-clear">
-			
-		</textarea>
+		maxlength="65536" class="form-text edgeless body-post button-clear" required></textarea>
+		<input class="form-text" type="text" name="hash" maxlength="40" placeholder="Your key" required>
 		<br><br>
-
-		<!-- Float either directions -->
-		<div class="float-left">
-			<input class="form-text" type="text" name="hash" maxlength="40" placeholder="Your key">
-		</div>
-		<div class="float-right">
-			<!-- Outlined Button -->
-			<input class="button-primary float-right publish" type="submit" name="send" value="Publish">
-		</div>
+		<input class="button-primary float-right publish" type="submit" name="send" value="Publish" required>
 
 	    
 	</form>
