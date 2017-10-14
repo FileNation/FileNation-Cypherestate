@@ -29,10 +29,18 @@ def newpost():
 	blog_id = db_handler.getBlogByKey(key)
 	if blog_id:
 		post_hash = db_handler.newPost(title, text, blog_id)
-		print(post_hash)
 		return redirect('/post/'+post_hash)
 	else:
-		return 'Bad Key'
+		return render_template('index.html', text=text, title=title, bad_key=True)
+
+@app.route('/newblog/', methods=['GET', 'POST'])
+def newblog():
+	if request.method=='POST':
+		pass
+	else:
+		return render_template('new_blog.html')
+
+
 
 @app.route('/post/<post_hash>/')
 def post(post_hash):
