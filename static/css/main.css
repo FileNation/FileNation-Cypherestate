@@ -1,12 +1,12 @@
 /* MAIN.CSS */
 #new-post {
 	margin: auto;
-	width: 50%;
+	width: 60%;
 	font-size: 1.2em;
-	margin-bottom:8rem;
 }
 
 #footer{
+	margin-top:8rem;
 	margin-bottom: 3rem;
 }
 

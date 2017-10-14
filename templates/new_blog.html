@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="new-post">
+
+	{%if not key:%}
+		<form action="/new_post/" method="POST" id="new-post-form">
+			<h2>You're registering a new blog</h2>
+			<br>
+			Your blog title here:
+			<br>
+			<h3><input class="form-text" type="text" name="title" maxlength="56" placeholder="Title" required></h3>
+			<input class="button-primary publish" type="submit" name="send" value="Create">
+		</form>
+		<script>
+			var simplemde = new SimpleMDE({ element: document.getElementById("text") });
+		</script>
+
+	{%else:%}
+		<h2>Your blog has been registered</h2>
+		<br>
+		Your new key is:
+		<br>
+		{{key}}
+		<br>
+		<p>
+			Be aware that we don't keep our users' keys, so keep it safe.
+			Your key is generated completely randomly from a cryptographic
+			algorithm and can not be generated again. Be aware.
+		</p>
+	{% endif %}
+		
+</div>
+{% endblock %}
