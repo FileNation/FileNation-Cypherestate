@@ -21,7 +21,7 @@
 	line-height:5em;
 	padding:3rem;
 	margin-bottom:-3rem;
-	margin-right:7.5%;
+	margin-right:5%;
 	margin-left:2.5%;
 }
 
@@ -96,4 +96,20 @@ ul.posts-list li a{
 	color:inherit;
 	text-decoration: none;
 	opacity:0.75;
+}
+
+.key-display {
+	font-size: 0.7em;
+}
+
+.top-right{
+	padding-right:3rem;
+}
+
+.about{
+	font-weight: bold;
+	color:#727272;
+}
+.about:hover{
+	color:#918f8f;
 }
