@@ -147,7 +147,18 @@ ul.posts-list li a{
 }
 
 .crypto-icon {
-	width: 0.8em;
-	height: 0.8em;
+	width: 1.1em;
+	height: 1.1em;
 	margin-right: 0.7em;
+	float: left;
+	margin-top: 0.55%;
+}
+
+.crypto-address {
+	font-size: 0.8em;
+	float: right;
+}
+
+.crypto-space {
+	min-width: 520px;
 }
