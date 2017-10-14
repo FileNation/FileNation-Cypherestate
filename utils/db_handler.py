@@ -22,7 +22,7 @@ def newPost(title, text, blog_id):
 	post_file = createPostFile(title, template)
 	post_hash = uploadPost(post_file)
 	addPostToDB(post_hash, blog_id)
-	blog = getBlogByID(id)
+	blog = Blog.get(id)
 	addPostToBlog(post, blog)
 	return post_hash
 	
