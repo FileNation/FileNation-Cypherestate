@@ -78,10 +78,10 @@ def getBlogIPNS(id):
 
 def blogExists(name):
 	blog = Blog.query.filter_by(name=name).first()
-	return blog.id if blog else False
+	return True if blog else False
 
 
-def authorExists(name):
+def authorExists(author):
 	blog = Blog.query.filter_by(author=author).first()
 	return True if blog else False
 
@@ -89,7 +89,6 @@ def authorExists(name):
 def keyExists(blog_key):
 	blog_key = getSHA(blog_key)
 	Blog.query.filter_by(key=blog_hash)
-
 
 
 def isBlog(name, hash):
