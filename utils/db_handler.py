@@ -21,15 +21,16 @@ def newPost(title, text, blog_id):
 	template = fillPostTemplate(title, text)
 	post_file = createPostFile(title, template)
 	post_hash = uploadPost(post_file)
-	addPostToDB(post_hash, blog_id)
-	blog = Blog.get(id)
+	post = addPostToDB(post_hash, blog_id)
+	blog = Blog.query.get(blog_id)
 	addPostToBlog(post, blog)
 	return post_hash
 	
 	
 def fillPostTemplate(title, text):
-	template = render_template_string('post.html', title=title, text=text)
-	return template
+	template = open(post_template).read()
+	filled = render_template_string(template, title=title, text=text)
+	return filled
 
 
 def createPostFile(title, template):
@@ -43,6 +44,7 @@ def createPostFile(title, template):
 def uploadPost(post_file):
 	res = api.add(temp+post_file+'.html')
 	post_hash = res['Hash']
+	print(post_hash)
 	return post_hash
 
 
@@ -50,6 +52,7 @@ def addPostToDB(post_hash, blog_id):
 	post = Post(post_hash, blog_id)
 	db.session.add(post)
 	db.session.commit()
+	return post
 
 
 def newBlog(author, name):
@@ -64,21 +67,25 @@ def newBlog(author, name):
 def addPostToBlog(post, blog):
 	template = fillBlogPosts(blog)
 	file = createBlogFile(blog.name, template)
-	blog_hash, ipns = uploadBlog(blog_file)
+	blog_hash, ipns = uploadBlog(file)
 	blog.hash = blog_hash
 	blog.ipns = ipns
 	db.session.commit()
 
 def fillBlogPosts(blog):
 	posts = Post.query.filter_by(blog_id=blog.id)
-	template = render_template_string('blog.html', blog, posts)
+	template = render_template_string(
+		'blog.html',
+		 blog = blog,
+		 posts = posts
+	)
 	return template
 
 def fillBlogTemplate(author, name):
 	template = render_template_string(
 		'blog.html',
-	 	title=title, 
-	 	author=author
+	 	title = title, 
+	 	author = author
 	 )
 	return template
 

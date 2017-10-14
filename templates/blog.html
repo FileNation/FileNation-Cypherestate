@@ -33,14 +33,14 @@
     <center><a href=""><h2 class="blog-title"><b>{{blog.name}}</b></h2> by {{blog.author}}</a></center>
 
     <ul class="posts-list">
-        {%for post in args['posts']:%}
+        {%for post in posts%}
           <li>
             <a href=''>
               <h3 class='post-title'>{{post.title}}</h3>\
-              <p class='post-text'>%{{post.text}}</p>\
+              <p class='post-text'>{{post.text}}</p>\
             </a>
           </li>
-        {%end for%}
+        {%endfor%}
     </ul>
     <br>
 
