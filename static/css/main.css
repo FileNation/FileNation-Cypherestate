@@ -49,3 +49,12 @@
 	font-weight: inherit;
 	color: inherit;
 }
+
+.footnote {
+	font-size: 0.7em;
+}
+
+#new-blog-footnote {
+	margin-left: 1%;
+	margin-top: 1%;
+}
