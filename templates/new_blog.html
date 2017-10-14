@@ -6,11 +6,11 @@
 
 	{%if not key:%}
 		<form action="/new_post/" method="POST" id="new-post-form">
-			<h2>You're registering a new blog</h2>
 			<br>
-			Your blog title here:
-			<br>
-			<h3><input class="form-text" type="text" name="title" maxlength="56" placeholder="Title" required></h3>
+			<input class="form-text" type="text" name="blog_name" maxlength="42" placeholder="Enter your blog name here." required>
+			<p class="form-verify" id="name-verify">This name has already been taken</p>
+			<input class="form-text" type="text" name="blog_author" maxlength="42" placeholder="Your name, pseudonym or leave blank for anonymous." required>
+			<p class="form-verify" id="author-verify">This name has already been taken</p>
 			<input class="button-primary publish" type="submit" name="send" value="Create">
 		</form>
 		<script>
