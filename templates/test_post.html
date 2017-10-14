@@ -276,24 +276,27 @@
 
 <body>
 
-  <!-- Clear any float  -->
-  <div class="clearfix header">
-    <!-- Float either directions -->
-    <div class="float-left">
-      <img src="https://gateway.ipfs.io/ipfs/Qmemp5oKumJgasUFd5st1fnV1AzgqvnZL55YgDuJ7EvZ7s" class="logo">
-    </div>
-    <div class="float-right">
-      <!-- Outlined Button -->
-      <button class="button button-outline">New Post</button>
-    </div>
-  </div>
+ 	<!-- Clear any float  -->
+	<div class="clearfix header">
+	  <!-- Float either directions -->
+	  <div class="float-left">
+	  	<img src="https://gateway.ipfs.io/ipfs/Qmemp5oKumJgasUFd5st1fnV1AzgqvnZL55YgDuJ7EvZ7s" class="logo">
+	  </div>
+	  <div class="float-right">
+	  	<!-- Outlined Button -->
+  		<button class="button button-outline">New Post</button>
+	  </div>
+	</div>
 
-  <div id="content">
-    <!-- Content here -->
+	<div id="content">
+		<!-- Content here -->
     <br>
-    <h1 class="post-title" id="Title">{{title}}</h1> by {{author}}
+    <h1 class="post-title" id="Title">I'm too good at goodbyes</h1> by Eric Alcaide
     <p class="post-text" id="pre_md">
-      {{text}}
+      You must think that I'm stupid
+      You must think that I'm a fool
+      You must think that I'm new to this
+      But I have seen this all before
     </p>
     <br>
 
@@ -385,58 +388,6 @@
       var parsed = converter.makeHtml(text);
       document.getElementById('pre_md').innerHTML = parsed;
     }
-  </script>
-
-  <script type="text/javascript">
-    function getCredit(){
-      var title = document.getElementById("Title").innerHTML;
-      var link = window.location.href;
-      return [title, link]
-    }
-
-    function getTwitterMessage(title, link){
-      var defaulted = "https://cypherestate.org";
-      var loc = "https://twitter.com/intent/tweet/?text=";
-      var mess= "Authorless Collaborative stories @cypherestate. Check "+title+"&amp;url="+defaulted;
-      return loc+mess
-    } 
-
-    function getTumblrMessage(title, link){
-      var defaulted = "https://cypherestate.org";
-      var loc = "https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=";
-      var title = title;
-      var mess = "Collaborative stories 140 characters at a time.";
-      var args = "&amp;caption="+mess+" Check "+title+"&amp;content="+link+"&amp;canonicalUrl="+link;
-      var last = "&amp;shareSource=tumblr_share_button";
-
-      return loc+title+args+last
-    }
-
-    function getRedditMessage(title, link){
-      var mess = "https://reddit.com/submit/?url="+link;
-      return mess
-    }
-
-    function getWhatsappMessage(title,link){
-      var loc = "whatsapp://send?text="
-      var mess = "Collaborative stories 140 characters at a time. Check "+title+": "+link;
-      return loc+mess
-    }
-
-    function getYnewsMessage(title, link){
-      var loc = "https://news.ycombinator.com/submitlink?u="
-      var args = "&amp;t=Collaborative stories 140 characters at a time."
-      return loc+link+args
-    }
-
-    function getMailMessage(title, link){
-      var mess = "mailto:?subject=Cypherestate: "+title+"&amp;body=Hey! Check this out: "+link;
-      return mess
-    }
-
-    var credit = getCredit();
-    var title = credit[0];
-    var link = credit[1];
   </script>
 
 </html>
