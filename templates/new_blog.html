@@ -16,7 +16,9 @@
 	{%else%}
 		<h2>Your new blog has been created.</h2>
 		<p>Your new key is:</p>
-		<h3>{{key}}</h3>
+		<div class="key-display">
+			<pre class="code prettyprint lang-md prettyprinted"><code class="code-content">{{key}}</code></pre>
+		</div>
 		<br>
 		<p>
 			Be aware that we don't keep our users' keys, so keep it safe.
