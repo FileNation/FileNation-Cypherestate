@@ -124,9 +124,6 @@ ul.posts-list li a{
 	font-size: 0.8em;
 }
 
-
-
-
 @media (max-width: 425px) {
   	#new-post {
 		width: 90%;
@@ -144,8 +141,13 @@ ul.posts-list li a{
 
 }
 
+#donation-subtitle {
+	font-size: 1em;
+	letter-spacing: 0.01em;
+}
 
-
-
-
-
+.crypto-icon {
+	width: 0.8em;
+	height: 0.8em;
+	margin-right: 0.7em;
+}
