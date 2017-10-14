@@ -22,4 +22,17 @@ def index():
 
 @app.route('/newpost/', methods=["POST"])
 def newpost():
-	print(request.form)
+	form = reques.form
+	text = form['text']
+	title = form['title']
+	key = form['key']
+	blog_id = db_handler.getBlogByKey(key)
+	if blog_id:
+		post_hash = db_handler.newPost(text, title, blog_id)
+		return redirect('/post/'+post_hash)
+	else:
+		return 'Bad Key'
+
+@app.route('/post/<post_hash>/')
+def post(post_hash):
+	redirect('https://gateway.ipfs.io/ipfs/'+post_hash+'/', code=302)
