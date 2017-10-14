@@ -5,14 +5,16 @@ from .values import *
 import hashlib
 import os
 import ipfsapi
+from flask import render_template_string
 
 
 api = ipfsapi.connect('127.0.0.1', 5001)
 
+
 def getBlogByKey(key):
 	key = getSHA(key.encode('utf-8'))
 	blog = Blog.query.filter_by(key=key).first()
-	return blog.id if blog else False
+	return True if blog else False
 
 
 def newPost(title, text, blog_id):
@@ -20,12 +22,13 @@ def newPost(title, text, blog_id):
 	post_file = createPostFile(title, template)
 	post_hash = uploadPost(post_file)
 	addPostToDB(post_hash, blog_id)
+	blog = getBlogByID(id)
+	addPostToBlog(post, blog)
 	return post_hash
 	
 	
 def fillPostTemplate(title, text):
-	template = open(post_template).read()
-	template = template.replace('%TITLE%', title).replace('%TEXT%', text)
+	template = render_template_string('post.html', title=title, text=text)
 	return template
 
 
@@ -54,13 +57,29 @@ def newBlog(author, name):
 	blog_file = createBlogFile(name, template)
 	blog_hash, ipns = uploadBlog(blog_file)
 	key = generateBlogKey() 
-	addBlogToDB(ipns, blog_hash, key, author)
-	return key
+	hashed_key = getSHA(key)
+	addBlogToDB(ipns, blog_hash, hashed_key, name, author)
+	return (key, ipns)
 
+def addPostToBlog(post, blog):
+	template = fillBlogPosts(blog)
+	file = createBlogFile(blog.name, template)
+	blog_hash, ipns = uploadBlog(blog_file)
+	blog.hash = blog_hash
+	blog.ipns = ipns
+	db.session.commit()
+
+def fillBlogPosts(blog):
+	posts = Post.query.filter_by(blog_id=blog.id)
+	template = render_template_string('blog.html', blog, posts)
+	return template
 
 def fillBlogTemplate(author, name):
-	template = open(blog_template).read()
-	template = template.replace("%AUTHOR%", author).replace('%NAME%', name)
+	template = render_template_string(
+		'blog.html',
+	 	title=title, 
+	 	author=author
+	 )
 	return template
 
 
@@ -72,7 +91,7 @@ def createBlogFile(name, template):
 	return temp_name
 
 def uploadBlog(blog_file):
-	res = api.add(blog_file)
+	res = api.add(temp_blogs+blog_file+'.html')
 	ipfs_path = '/ipfs/'+res['Hash']
 	published_data = api.name_publish(ipfs_path, resolve=True, lifetime='175200h')
 	return (res['Hash'], published_data['Name'])
@@ -85,8 +104,8 @@ def generateBlogKey():
 	return key
 
 
-def addBlogToDB(ipns, key, name, author):
-	blog = Blog(ipns, key, author)
+def addBlogToDB(ipns, blog_hash, key, name, author):
+	blog = Blog(ipns, blog_hash, key, name, author)
 	db.session.add(blog)
 	db.session.commit()
 
@@ -115,8 +134,9 @@ def authorExists(author):
 
 
 def keyExists(blog_key):
-	blog_key = getSHA(blog_key)
-	Blog.query.filter_by(key=blog_hash)
+	blog_key = getSHA(blog_key.encode('utf-8'))
+	blog = Blog.query.filter_by(key=blog_key).first()
+	return True if blog else False
 
 
 def isBlog(name, hash):
@@ -125,8 +145,8 @@ def isBlog(name, hash):
 
 
 def validateSubmission(blog_name, author_name):
-	if db_handler.blogExists(blog_name):
+	if blogExists(blog_name):
 		return 'blog_exists'	
-	if db_handler.authorExists(author_name):
+	if authorExists(author_name):
 		return 'author_exists'
 	return False

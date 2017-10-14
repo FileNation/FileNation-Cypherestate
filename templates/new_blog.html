@@ -5,11 +5,11 @@
 <div id="new-post">
 
 	{%if not key%}
-		<form action="/newblog/" method="POST" id="new-post-form">
+		<form action="/newblog/" method=post id="new-post-form">
 			<br>
 			<input class="form-text" id="blog-name-input" type="text" name="blog_name" maxlength="42" placeholder="Enter your blog name here." required>
 			<p class="form-verify" id="name-verify-text" style="color:#ff4444;">Blog name cannot be empty.</p>
-			<input class="form-text" id="blog-author-input" type="text" name="blog_author" maxlength="42" placeholder="Your name or pseudonym." required>
+			<input class="form-text" id="blog-author-input" type="text" name="author" maxlength="42" placeholder="Your name or pseudonym." required>
 			<p class="form-verify" id="author-verify-text" style="color:#ff4444">Author name cannot be empty.</p>
 			<input class="button-primary publish" type="submit" name="send" value="Create">
 		</form>
@@ -19,6 +19,8 @@
 		<div class="key-display">
 			<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" id="key" style="float:left;">{{key}}</code><code class="code-content" style="float:right;"><a href="javascript:copyToClipboard('key')"><i class="fa fa-clone" aria-hidden="true"></i></a></code></pre>
 		</div>
+    <p>Your secret key is:</p>
+    <pre><a href="https://gateway.ipfs.io/ipns/{{adress}}">https://gateway.ipfs.io/ipns/{{adress}}</a></pre>
 		<p class="terms-paragraph">
 			Make sure you write down your key in a safe place. This key will allow you (or anyone) to post on your new blog. Cypherestate has no way of recovering your key.
 		</p>
