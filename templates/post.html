@@ -358,6 +358,9 @@
   <script type="text/javascript">
       function getAdress() {
         var url = window.location.href;
+        if(url[-1] !== "/"){
+          url = url+"/"
+        }
         //console.log(url);
         var chunks = url.split("/");
         //console.log(chunks);
