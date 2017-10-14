@@ -30,14 +30,14 @@
   <div id="new-post">
     <!-- Content here -->
     <br>
-    <center><a href=""><h2 class="blog-title"><b>{{args['name']}}</b></h2> by {{args['author']}}</a></center>
+    <center><a href=""><h2 class="blog-title"><b>{{blog.name}}</b></h2> by {{blog.author}}</a></center>
 
     <ul class="posts-list">
         {%for post in args['posts']:%}
           <li>
             <a href=''>
-              <h3 class='post-title'>{{post[0]}}</h3>\
-              <p class='post-text'>%{{post[1]}}</p>\
+              <h3 class='post-title'>{{post.title}}</h3>\
+              <p class='post-text'>%{{post.text}}</p>\
             </a>
           </li>
         {%end for%}
