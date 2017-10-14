@@ -62,5 +62,5 @@ def checkBlogName(blog_name):
 
 
 @app.route('/checkAuthor/<author>/')
-def checkBlogName(author):
+def checkAuthor(author):
 	return str(db_handler.authorExists(author))
