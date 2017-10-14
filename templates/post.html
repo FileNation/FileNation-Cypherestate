@@ -94,13 +94,31 @@
       %TEXT%
     </p>
     <br>
-	</div>
+
+    <p><center>Post Adress on IPFS: <pre class="code prettyprint lang-md"><code class="code-content" id="adress"></code></pre></center></p>
+
+  </div>
+
+  <!-- CODE FOR IPFS ADRESS DISPLAY -->
+  <script type="text/javascript">
+      function getAdress() {
+        var url = window.location.href;
+        //console.log(url);
+        var chunks = url.split("/");
+        //console.log(chunks);
+        var adress = chunks[chunks.length-2];
+        //console.log(adress);
+        document.getElementById("adress").innerHTML = adress;
+      } 
+      getAdress();
+  </script>
+
 
   <div class="container center" id="footer">
-
     <!-- Float either directions -->
       <center>Copyright &copy; 2017 Cypher Estate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="https://www.activism.net/cypherpunk/manifesto.html" class="button button-clear manifesto">Read our manifesto</a></center>
   </div>
+
 
 </body>
 
