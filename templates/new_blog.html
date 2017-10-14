@@ -5,19 +5,17 @@
 <div id="new-post">
 
 	{%if not key%}
-		<form action="/new_post/" method="POST" id="new-post-form">
+		<form action="/newblog/" method="POST" id="new-post-form">
 			<br>
 			<input class="form-text" id="blog-name-input" type="text" name="blog_name" maxlength="42" placeholder="Enter your blog name here." required>
-			<p class="form-verify" id="name-verify-text">Blog name cannot be empty.</p>
+			<p class="form-verify" id="name-verify-text" style="color:#ff4444;">Blog name cannot be empty.</p>
 			<input class="form-text" id="blog-author-input" type="text" name="blog_author" maxlength="42" placeholder="Your name or pseudonym." required>
-			<p class="form-verify" id="author-verify-text">Author name cannot be empty.</p>
+			<p class="form-verify" id="author-verify-text" style="color:#ff4444">Author name cannot be empty.</p>
 			<input class="button-primary publish" type="submit" name="send" value="Create">
 		</form>
 	{%else%}
-		<h2>Your blog has been registered</h2>
-		<br>
-		Your new key is:
-		<br>
+		<h2>Your new blog has been created.</h2>
+		<p>Your new key is:</p>
 		<h3>{{key}}</h3>
 		<br>
 		<p>
@@ -45,6 +43,7 @@
   				{
   					//Name is new
   					$("#name-verify-text").text("Blog name is valid.");
+  					$("#name-verify-text").css("color", "#50dd3e");
   				}
   			});
   		}
@@ -52,6 +51,7 @@
   		{
   			//Empty value
   			$("#name-verify-text").text("Blog name cannot be empty.");
+  			$("#name-verify-text").css("color", "#ff4444");
   		}
 	});
 
@@ -63,11 +63,13 @@
   				{
   					//Name exists
   					$("#author-verify-text").text("Author already exists.");
+  					$("#author-verify-text").css("color", "#ff4444");
   				}
   				else
   				{
   					//Name is new
   					$("#author-verify-text").text("Author name is valid.");
+  					$("#author-verify-text").css("color", "#50dd3e");
   				}
   			});
   		}
@@ -75,6 +77,7 @@
   		{
   			//Empty value
   			$("#author-verify-text").text("Author name cannot be empty.");
+  			$("#author-verify-text").css("color", "#ff4444");
   		}
 	});
 </script>
