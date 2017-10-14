@@ -41,3 +41,11 @@
 .body-post{
 	min-height:50%;
 }
+
+.form-hash {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	font-weight: inherit;
+	color: inherit;
+}

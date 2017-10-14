@@ -7,16 +7,13 @@
 
 <div id="new-post">
 	<form action="/newpost/" method="post" id="new-post-form">
-		<h2>Start Writing Today!</h2>
 		<br>
-		<h3><input class="form-text edgeless" type="text" name="title" maxlength="56" placeholder="Title" required></h3>
-		<textarea placeholder="The body of your article starts here..." id="text" name="text"
+		<h3><input class="form-text edgeless" type="text" name="title" maxlength="56" placeholder="Enter your title here." required></h3>
+		<textarea placeholder="Write your ideas here." id="text" name="text"
 		maxlength="65536" class="form-text edgeless body-post button-clear"></textarea>
-		<input class="form-text" type="password" name="key" placeholder="Your key" required>
+		<input class="form-hash" type="password" name="key" placeholder="Enter your private key here." required>
 		<br><br>
 		<input class="button-primary float-right publish" type="submit" name="send" value="Publish">
-
-	    
 	</form>
 	<script>
 		var simplemde = new SimpleMDE({ element: document.getElementById("text") });
