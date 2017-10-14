@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <!-- CSS Reset -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <!-- Milligram CSS minified -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="/static/img/provisional_icon.png"/>
+  <style>
+    /* MAIN.CSS */
+    #new-post {
+      margin: auto;
+      width: 50%;
+      font-size: 1.2em;
+      margin-bottom:8rem;
+    }
+
+    .header {
+      line-height:5em;
+      padding:3rem;
+      margin-bottom:-3rem;
+      margin-right:7.5%;
+      margin-left:2.5%;
+    }
+
+    .header > * {
+      vertical-align:middle;
+    }
+
+    .logo {
+      max-height:5em;
+    }
+
+    .form-text{
+      border: none transparent!important;
+    }
+
+    .body-post{
+      min-height:50%;
+    }
+
+    #content {
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+
+    .post-text {
+      text-align: justify;
+      white-space: pre-line;
+    }
+
+  </style>
+  <title>Cypher Estate</title>
+</head>
+
+<body>
+ 	<!-- Clear any float  -->
+	<div class="clearfix header">
+	  <!-- Float either directions -->
+	  <div class="float-left">
+	  	<img src="/static/img/provisional_icon.png" class="logo">
+	  </div>
+	  <div class="float-right">
+	  	<!-- Outlined Button -->
+  		<button class="button button-outline">New Post</button>
+	  </div>
+	</div>
+
+	<div id="content">
+		<!-- Content here -->
+    <br>
+    <h1 class="post-title">Hello it's me</h1>
+    <p class="post-text">
+      # Hello, it's me
+
+![Adele](https://media.vanityfair.com/photos/5813b8bb7574d7c951847676/master/w_900,c_limit/adele-december-2016-02.png)
+
+Hello, it's me
+I was wondering if after all these years you'd like to meet
+To go over everything
+They say that time's supposed to heal ya
+But I ain't done much healing
+
+Hello, can you hear me
+I'm in California dreaming about who we used to be
+When we were younger and free
+I've forgotten how it felt before the world fell at our feet
+
+There's such a difference between us
+And a million miles
+
+Hello from the other side
+I must have called a thousand times
+To tell you I'm sorry for everything that I've done
+But when I call you never seem to be home
+
+Hello from the outside
+At least I can say that I've tried
+To tell you I'm sorry for breaking your heart
+But it don't matter it clearly doesn't tear you apart anymore
+
+Hello, how are you?
+It's so typical of me to talk about myself I'm sorry
+I hope that you're well
+Did you ever make it out of that town where nothing ever happened
+
+It's no secret that the both of us
+Are running out of time
+
+So hello from the other side
+I must have called a thousand times
+To tell you I'm sorry for everything that I've done
+But when I call you never seem to be home
+Hello from the outside
+At least I can say that I've tried
+To tell you I'm sorry for breaking your heart
+But it don't matter it clearly doesn't tear you apart anymore
+
+Ooooohh, anymore
+Ooooohh, anymore
+Ooooohh, anymore
+Anymore
+
+Hello from the other side
+I must have called a thousand times
+To tell you I'm sorry for everything that I've done
+But when I call you never seem to be home
+Hello from the outside
+At least I can say that I've tried
+To tell you I'm sorry for breaking your heart
+But it don't matter it clearly doesn't tear you apart anymore
+
+###Watch the video [here](https://www.youtube.com/watch?v=YQHsXMglC9A)!
+    </p>
+    <br>
+	</div>
+
+  <script type="text/javascript" src="//simonwaldherr.github.io/micromarkdown.js/dist/micromarkdown.min.js"></script>
+  <script type="text/javascript">
+    window.onload = function markdown(){
+      var text = document.getElementById('full_text')
+      text.innerHTML = micromarkdown.parse(text.innerHTML);
+    }
+    function previewMarkdown(){
+      //
+    }
+  </script>
+
+  
+
+  <div class="container center" id="footer">
+
+    <!-- Float either directions -->
+	  	<center>Copyright &copy; 2017 Cypher Estate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="button button-outline">Read our manifesto</a></center>
+  </div>
+</body>
+
+</html>
