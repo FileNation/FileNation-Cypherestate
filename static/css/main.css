@@ -79,3 +79,21 @@ br {
 	-ms-user-select: none;      
 	user-select: none;
 }
+
+ul.posts-list{
+	list-style: none;
+	list-style-type: none;
+	font-size: 0.95em;
+	margin-top:3rem;
+}
+ul.posts-list li{
+	margin-bottom: 5rem
+}
+ul.posts-list li a{
+	color:inherit;
+}
+ul.posts-list li a{
+	color:inherit;
+	text-decoration: none;
+	opacity:0.75;
+}
