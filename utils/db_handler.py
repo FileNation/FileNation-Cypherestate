@@ -4,6 +4,10 @@ from .models import *
 from .values import *
 import hashlib
 import os
+import ipfsapi
+
+
+api = ipfsapi.connect('127.0.0.1', 5001)
 
 def generateKey():
 	rand = os.urandom(24)
@@ -26,15 +30,22 @@ def getBlogIPNS(id):
 	return blog.ipns
 
 def newPost(title, text, blog_id):
-	post_hash = uploadPost()
+	post_hash = uploadPost(title, text)
 	post = Post(post_hash, blog_id)
 	db.session.add(post)
-	db.commit()
+	db.session.commit()
 	return post.hash
 	
 
-def uploadPost():
-	post_hash = ''
+def uploadPost(title, text):
+	temp_name = title.replace(' ', '-')
+	template = open('templates/post.html').read()
+	template = template.replace('%TITLE%', title).replace('%TEXT%', text)
+	outfile = open('temp_posts/'+temp_name+'.html', 'w+')
+	outfile.write(template)
+	outfile.close()
+	res = api.add('temp_posts/'+temp_name+'.html')
+	post_hash = res['Hash']
 	return post_hash
 
 
@@ -54,7 +65,7 @@ def newBlog(name):
 	key = generateBlogKey() 
 	blog = Blog(ipns, key)
 	db.session.add(blog)
-	db.commit()
+	db.session.commit()
 
 
 def uploadBlog(name):
