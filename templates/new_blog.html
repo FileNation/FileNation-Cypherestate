@@ -4,20 +4,16 @@
 
 <div id="new-post">
 
-	{%if not key:%}
+	{%if not key%}
 		<form action="/new_post/" method="POST" id="new-post-form">
 			<br>
-			<input class="form-text" type="text" name="blog_name" maxlength="42" placeholder="Enter your blog name here." required>
-			<p class="form-verify" id="name-verify">This name has already been taken</p>
-			<input class="form-text" type="text" name="blog_author" maxlength="42" placeholder="Your name, pseudonym or leave blank for anonymous." required>
-			<p class="form-verify" id="author-verify">This name has already been taken</p>
+			<input class="form-text" id="blog-name-input" type="text" name="blog_name" maxlength="42" placeholder="Enter your blog name here." required>
+			<p class="form-verify" id="name-verify-text">Blog name cannot be empty.</p>
+			<input class="form-text" id="blog-author-input" type="text" name="blog_author" maxlength="42" placeholder="Your name or pseudonym." required>
+			<p class="form-verify" id="author-verify-text">Author name cannot be empty.</p>
 			<input class="button-primary publish" type="submit" name="send" value="Create">
 		</form>
-		<script>
-			var simplemde = new SimpleMDE({ element: document.getElementById("text") });
-		</script>
-
-	{%else:%}
+	{%else%}
 		<h2>Your blog has been registered</h2>
 		<br>
 		Your new key is:
@@ -32,4 +28,55 @@
 	{% endif %}
 		
 </div>
+
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript">
+    $("#blog-name-input").change(function() {
+    	if ($("#blog-name-input").val() != "")
+    	{
+  			$.get("/checkBlogName/" + $("#blog-name-input").val() + "/", function(data) {
+  				if (data == "True")
+  				{
+  					//Name exists
+  					$("#name-verify-text").text("Blog already exists.");
+  					$("#name-verify-text").css("color", "#ff4444");
+  				}
+  				else
+  				{
+  					//Name is new
+  					$("#name-verify-text").text("Blog name is valid.");
+  				}
+  			});
+  		}
+  		else
+  		{
+  			//Empty value
+  			$("#name-verify-text").text("Blog name cannot be empty.");
+  		}
+	});
+
+	$("#blog-author-input").change(function() {
+  		if ($("#blog-author-input").val() != "")
+    	{
+  			$.get("/checkBlogName/" + $("#blog-author-input").val() + "/", function(data) {
+  				if (data == "True")
+  				{
+  					//Name exists
+  					$("#author-verify-text").text("Author already exists.");
+  				}
+  				else
+  				{
+  					//Name is new
+  					$("#author-verify-text").text("Author name is valid.");
+  				}
+  			});
+  		}
+  		else
+  		{
+  			//Empty value
+  			$("#author-verify-text").text("Author name cannot be empty.");
+  		}
+	});
+</script>
+
 {% endblock %}
