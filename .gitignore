@@ -1,4 +1,6 @@
 __pycache__/
+utils/__pycache__/
 *.py[cod]
 *$py.class
+
 database.db
