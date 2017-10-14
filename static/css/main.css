@@ -109,7 +109,12 @@ ul.posts-list li a{
 .about{
 	font-weight: bold;
 	color:#727272;
+	vertical-align: middle;
 }
 .about:hover{
 	color:#918f8f;
+}
+
+.terms-paragraph {
+	font-size: 0.8em;
 }
