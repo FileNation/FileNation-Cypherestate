@@ -52,9 +52,9 @@ def addPostToDB(post_hash, blog_id):
 def newBlog(author, name):
 	template = fillBlogTemplate(author, name)
 	blog_file = createBlogFile(name, template)
-	ipns = uploadBlog(blog_file)
+	blog_hash, ipns = uploadBlog(blog_file)
 	key = generateBlogKey() 
-	addBlogToDB(ipns, key, author)
+	addBlogToDB(ipns, blog_hash, key, author)
 	return key
 
 
@@ -72,8 +72,10 @@ def createBlogFile(name, template):
 	return temp_name
 
 def uploadBlog(blog_file):
-	pass
-	return ipns
+	res = api.add(blog_file)
+	ipfs_path = '/ipfs/'+res['Hash']
+	published_data = api.name_publish(ipfs_path, resolve=True, lifetime='175200h')
+	return (res['Hash'], published_data['Name'])
 
 
 def generateBlogKey():

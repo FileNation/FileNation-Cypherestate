@@ -6,12 +6,14 @@ class Blog(db.Model):
 	ipns = db.Column(db.Text)
 	key = db.Column(db.Text)
 	author = db.Column(db.String(42))
+	hash = db.Column(db.Text)
 
-	def __init__(self, ipns, key, name, author):
+	def __init__(self, ipns, blog_hash, key, name, author):
 		self.ipns = ipns
 		self.key = key
 		self.name = name
 		self.author = author
+		self.hash = blog_hash
 
 class Post(db.Model):
 	id = db.Column(db.Integer, primary_key=True, autoincrement=True)
