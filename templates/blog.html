@@ -3,15 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link href='/static/css/milligram.min.css' rel="stylesheet">
-  <link href='/static/css/normalize.css' rel="stylesheet">
-  <link href='/static/css/main.css' rel="stylesheet">
+  <link href='../static/css/milligram.min.css' rel="stylesheet">
+  <link href='../static/css/normalize.css' rel="stylesheet">
+  <link href='../static/css/main.css' rel="stylesheet">
   <!-- WYSIWYG editor -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
   <!-- Favicon -->
   <link rel="icon" href="/static/img/provisional_icon.png"/>
 
   <title>Cypher Estate</title>
+
+  <style>
+    ul.posts-list{
+      list-style: none;
+      list-style-type: none;
+      font-size: 0.95em;
+      margin-top:3rem;
+    }
+    ul.posts-list li{
+      margin-bottom: 5rem
+    }
+    ul.posts-list li a{
+      color:inherit;
+    }
+    ul.posts-list li a{
+      color:inherit;
+      text-decoration: none;
+      opacity:0.75;
+    }
+  </style>
 </head>
 
 <body>
@@ -27,24 +47,54 @@
     </div>
   </div>
 
-  <div id="content">
+  <div id="new-post">
     <!-- Content here -->
     <br>
-    <h1 class="post-title">{{BLOG_TITLE}}</h1>
+    <center><a href=""><h2 class="blog-title"><b>Cypher Estate</b></h2> by Assange</a></center>
+
+    <ul class="posts-list">
+      <li><a href="">
+          <h3 class="post-title">¿Quatrecasas tiene cuatro casas?</h3>
+          <p class="post-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          </a>
+      </li>
+      <li>
+          <a href="">
+          <h3 class="post-title">La Balada de Baladas</h3>
+          <p class="post-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          </a>
+      </li>
+      <li>
+          <a href="">
+          <h3 class="post-title">Pol Baladas luna te bajará la Luna</h3>
+          <p class="post-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          </a>
+      </li>
+      <li>
+          <a href="">
+          <h3 class="post-title">Quin humor té aquest home</h3>
+          <p class="post-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          </a>
+      </li>
+    </ul>
     <br>
-    <p>{{POST_TITLE}}</p>
-    <p>{{POST_TEXT}}</p>
-    <br>
-    <p></p>
-    <p></p>
 
 
   </div>
 
 
-  <div class="container center" id="footer">
+    <div class="container center" id="footer">
+
     <!-- Float either directions -->
-      <center>Copyright &copy; 2017 Cypher Estate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="button button-outline">Read our manifesto</a></center>
+      <center>Copyright &copy; 2017 Cypher Estate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="https://www.activism.net/cypherpunk/manifesto.html" class="button button-clear manifesto">Read our manifesto</a></center>
   </div>
 </body>
 

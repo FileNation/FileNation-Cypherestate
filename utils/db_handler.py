@@ -76,6 +76,15 @@ def getBlogIPNS(id):
 	blog = Blog.get(id)
 	return blog.ipns
 
+def blogExists(name):
+	blog = Blog.query.filter_by(name=name).first()
+	return blog.id if blog else False
+
+
+def authorExists(name):
+	blog = Blog.query.filter_by(author=author).first()
+	return True if blog else False
+
 
 def keyExists(blog_key):
 	blog_key = getSHA(blog_key)
@@ -85,10 +94,16 @@ def keyExists(blog_key):
 
 def isBlog(name, hash):
 	blog = Blog.query.filter_by(ipns=hash).first()
-	return blog.id if blog else False
+	return True if blog else False
 
 
 def uploadBlog(name):
 	ipns = ''
 	return ipns
 
+def validateSubmission(blog_name, author_name):
+	if db_handler.blogExists(blog_name):
+		return 'blog_exists'	
+	if db_handler.authorExists(author_name):
+		return 'author_exists'
+	return False
