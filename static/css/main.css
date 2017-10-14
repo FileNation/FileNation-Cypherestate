@@ -50,11 +50,34 @@
 	color: inherit;
 }
 
+.form-text {
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	font-weight: inherit;
+	color: inherit;
+}
+
 .footnote {
 	font-size: 0.7em;
 }
 
 #new-blog-footnote {
+	margin-left: 1%;
+	margin-top: 1%;
+}
+
+br {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form-verify {
+	font-size: 0.7em;
 	margin-left: 1%;
 	margin-top: 1%;
 }
