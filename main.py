@@ -15,7 +15,6 @@ migrate = Migrate(app, db)
 from utils import models, db_handler
 db.create_all()
 
-
 @app.route('/')
 def index():
 	return render_template('index.html')
@@ -23,6 +22,10 @@ def index():
 @app.route('/about/')
 def about():
 	return render_template('about.html')
+
+@app.route('/donate/')
+def donate():
+	return render_template('donate.html')
 
 @app.route('/newpost/', methods=['POST'])
 def newpost():
@@ -35,21 +38,22 @@ def newpost():
 		post_hash = db_handler.newPost(title, text, blog_id)
 		return redirect('/post/'+post_hash)
 	else:
-		return render_template('index.html', text=text, title=title, bad_key=True)
+		return 'Sorry! Bad key.'
+		#return render_template('index.html', text=text, title=title, bad_key=True)
 
 @app.route('/newblog/', methods=['GET', 'POST'])
 def newblog():
 	if request.method=='POST':
 		form = request.form
-		blog_name = form['name']
-		author_name = form['author']
+		blog_name = form['blog_name']
+		author = form['author']
 
-		error = db_handler.validate_sumbission(blog_name, author_name)
+		error = db_handler.validateSubmission(blog_name, author)
 		if error:
 			return render_template('new_blog.html', error=error)
 
-		key = db_handler.newblog(blog_name)
-		return render_template('new_blog.html', key=key)
+		key, ipns = db_handler.newBlog(author, blog_name)
+		return render_template('new_blog.html', key=key, adress=ipns)
 	
 	else:
 		return render_template('new_blog.html')
