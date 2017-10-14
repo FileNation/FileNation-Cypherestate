@@ -60,7 +60,7 @@ def newBlog(author, name):
 
 def fillBlogTemplate(author, name):
 	template = open(blog_template).read()
-	template = template.replace('%AUTHOR%', author).replace('%NAME%', name)
+	template = template.replace("%AUTHOR%", author).replace('%NAME%', name)
 	return template
 
 
