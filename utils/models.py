@@ -5,10 +5,12 @@ class Blog(db.Model):
 	name = db.Column(db.String(42))
 	ipns = db.Column(db.Text)
 	key = db.Column(db.Text)
+	author = db.Column(db.String(42))
 
-	def __init__(self, ipns, key):
+	def __init__(self, ipns, key, author='anonymous'):
 		self.ipns = ipns
 		self.key = key
+		self.author = author
 
 class Post(db.Model):
 	id = db.Column(db.Integer, primary_key=True, autoincrement=True)
