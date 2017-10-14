@@ -97,3 +97,7 @@ ul.posts-list li a{
 	text-decoration: none;
 	opacity:0.75;
 }
+
+.key-display {
+	font-size: 0.7em;
+}

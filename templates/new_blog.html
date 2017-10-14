@@ -15,9 +15,10 @@
 		</form>
 	{%else%}
 		<h2>Your new blog has been created.</h2>
-		<p>Your new key is:</p>
+		<p>Your secret key is:</p>
 		<div class="key-display">
-			<pre class="code prettyprint lang-md prettyprinted"><code class="code-content">{{key}}</code></pre>
+			<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" id="key">{{key}}</code></pre>
+			<button onclick="copyToClipboard('key')">Copy</button>
 		</div>
 		<br>
 		<p>
@@ -82,6 +83,25 @@
   			$("#author-verify-text").css("color", "#ff4444");
   		}
 	});
+</script>
+
+<script>
+	function GetValue()
+	{
+   		var myarray= new Array("item1","item2","item3");
+   		var random = myarray[Math.floor(Math.random() * myarray.length)];
+   		//alert(random);
+		document.getElementById("message").innerHTML=random;
+	}
+
+	function copyToClipboard(elementId) {
+  		var aux = document.createElement("input");
+  		aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+  		document.body.appendChild(aux);
+  		aux.select();
+  		document.execCommand("copy");
+  		document.body.removeChild(aux);
+	}
 </script>
 
 {% endblock %}
