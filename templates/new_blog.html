@@ -17,14 +17,10 @@
 		<h2>Your new blog has been created.</h2>
 		<p>Your secret key is:</p>
 		<div class="key-display">
-			<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" id="key">{{key}}</code></pre>
-			<button onclick="copyToClipboard('key')">Copy</button>
+			<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" id="key" style="float:left;">{{key}}</code><code class="code-content" style="float:right;"><a href="javascript:copyToClipboard('key')"><i class="fa fa-clone" aria-hidden="true"></i></a></code></pre>
 		</div>
-		<br>
-		<p>
-			Be aware that we don't keep our users' keys, so keep it safe.
-			Your key is generated completely randomly from a cryptographic
-			algorithm and can not be generated again. Be aware.
+		<p class="terms-paragraph">
+			Make sure you write down your key in a safe place. This key will allow you (or anyone) to post on your new blog. Cypherestate has no way of recovering your key.
 		</p>
 	{% endif %}
 		
