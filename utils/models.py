@@ -7,9 +7,10 @@ class Blog(db.Model):
 	key = db.Column(db.Text)
 	author = db.Column(db.String(42))
 
-	def __init__(self, ipns, key, author='anonymous'):
+	def __init__(self, ipns, key, name, author):
 		self.ipns = ipns
 		self.key = key
+		self.name = name
 		self.author = author
 
 class Post(db.Model):

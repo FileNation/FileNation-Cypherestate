@@ -16,14 +16,14 @@ def getBlogByKey(key):
 
 
 def newPost(title, text, blog_id):
-	template = fillTemplate(title, text)
+	template = fillPostTemplate(title, text)
 	post_file = createPostFile(title, template)
 	post_hash = uploadPost(post_file)
 	addPostToDB(post_hash, blog_id)
 	return post_hash
 	
 	
-def fillTemplate(title, text):
+def fillPostTemplate(title, text):
 	template = open(post_template).read()
 	template = template.replace('%TITLE%', title).replace('%TEXT%', text)
 	return template
@@ -49,18 +49,44 @@ def addPostToDB(post_hash, blog_id):
 	db.session.commit()
 
 
-def newBlog(name):
-	ipns = uploadBlog(name)
+def newBlog(author, name):
+	template = fillBlogTemplate(author, name)
+	blog_file = createBlogFile(name, template)
+	ipns = uploadBlog(blog_file)
 	key = generateBlogKey() 
-	blog = Blog(ipns, key)
-	db.session.add(blog)
-	db.session.commit()
+	addBlogToDB(ipns, key, author)
+	return key
+
+
+def fillBlogTemplate(author, name):
+	template = open(blog_template).read()
+	template = template.replace('%AUTHOR%', author).replace('%NAME%', name)
+	return template
+
+
+def createBlogFile(name, template):
+	temp_name = name.replace(' ','-')
+	outfile = open(temp_blogs+temp_name+'.html', 'w+')
+	outfile.write(template)
+	outfile.close()
+	return temp_name
+
+def uploadBlog(blog_file):
+	pass
+	return ipns
+
 
 def generateBlogKey():
 	key = generateKey()
 	if keyExists(key):
 		generateBlogKey()
 	return key
+
+
+def addBlogToDB(ipns, key, name, author):
+	blog = Blog(ipns, key, author)
+	db.session.add(blog)
+	db.session.commit()
 
 
 def generateKey():
@@ -71,10 +97,10 @@ def generateKey():
 def getSHA(data):
 	return hashlib.sha256(data).hexdigest()
 
-
 def getBlogIPNS(id):
 	blog = Blog.get(id)
 	return blog.ipns
+
 
 def blogExists(name):
 	blog = Blog.query.filter_by(name=name).first()
@@ -95,10 +121,6 @@ def isBlog(name, hash):
 	blog = Blog.query.filter_by(ipns=hash).first()
 	return True if blog else False
 
-
-def uploadBlog(name):
-	ipns = ''
-	return ipns
 
 def validateSubmission(blog_name, author_name):
 	if db_handler.blogExists(blog_name):
