@@ -358,7 +358,7 @@
   <script type="text/javascript">
       function getAdress() {
         var url = window.location.href;
-        if(url[-1] !== "/"){
+        if(url.slice(-1) !== "/"){
           url = url+"/"
         }
         //console.log(url);
