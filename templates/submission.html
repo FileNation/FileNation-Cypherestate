@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="new-post" style="text-align: justify;">
+	<h1 class="blog-title">Your post has been sent to IPFS.</h1>
+	<p>You can visit your post <a href="https://gateway.ipfs.io/ipfs/{{post_hash}}">here</a></p>
+	<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" style="float:left; margin-top: 0.35%;"><div class="inserted-hash" id="post-hash">https://gateway.ipfs.io/ipfs/{{post_hash}}</div></code><code class="code-content" style="float:right;"><a href="javascript:copyToClipboard('post-hash')"><i class="fa fa-clone" aria-hidden="true"></i></a></code></pre>
+	<p>You can visit your blog <a href="https://gateway.ipfs.io/ipfs/{{blog_hash}}">here</a></p>
+	<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" style="float:left; margin-top: 0.35%;"><div class="inserted-hash" id="blog-hash">https://gateway.ipfs.io/ipfs/{{blog_hash}}</div></code><code class="code-content" style="float:right;"><a href="javascript:copyToClipboard('blog-hash')"><i class="fa fa-clone" aria-hidden="true"></i></a></code></pre>
+</div>
+
+<script>
+	function GetValue()
+	{
+   		var myarray= new Array("item1","item2","item3");
+   		var random = myarray[Math.floor(Math.random() * myarray.length)];
+		document.getElementById("message").innerHTML=random;
+	}
+
+	function copyToClipboard(elementId) {
+  		var aux = document.createElement("input");
+  		aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+  		document.body.appendChild(aux);
+  		aux.select();
+  		document.execCommand("copy");
+  		document.body.removeChild(aux);
+	}
+</script>
+
+{% endblock %}
