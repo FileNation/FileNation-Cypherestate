@@ -8,8 +8,7 @@ class Blog(db.Model):
 	author = db.Column(db.String(42))
 	hash = db.Column(db.Text)
 
-	def __init__(self, ipns, blog_hash, key, name, author):
-		self.ipns = ipns
+	def __init__(self, blog_hash, key, name, author):
 		self.key = key
 		self.name = name
 		self.author = author
@@ -19,7 +18,9 @@ class Post(db.Model):
 	id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 	post_hash = db.Column(db.Text)
 	blog_id = db.Column(db.Integer)
+	title = db.Column(db.Text)
 
-	def __init__(self, post_hash, blog_id):
-		self.hash = post_hash
+	def __init__(self, post_hash, blog_id, title):
+		self.post_hash = post_hash
 		self.blog_id = blog_id
+		self.title = title
