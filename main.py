@@ -27,6 +27,9 @@ def about():
 def donate():
 	return render_template('donate.html')
 
+@app.route('/submission/')
+def submission():
+	return render_template('submission.html')
 
 @app.route('/author/<author>')
 def author(author):
