@@ -4,5 +4,8 @@ utils/__pycache__/
 *__pycache__*
 *.py[cod]
 *$py.class
-
+run.py
+wsgi.py
+cypherstate.py
+cypherstate.ini
 database.db
