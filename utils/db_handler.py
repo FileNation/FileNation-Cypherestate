@@ -14,11 +14,11 @@ api = ipfsapi.connect('127.0.0.1', 5001)
 def getBlogByKey(key):
     key = getSHA(key.encode('utf-8'))
     blog = Blog.query.filter_by(key=key).first()
-    return blog.id if blog else False
+    return blog if blog else False
 
 
 def getBlogByName(name):
-    blog = Blog.query.filter_by(name=name)
+    blog = Blog.query.filter_by(name=name).first()
     return blog if blog else False
 
 
