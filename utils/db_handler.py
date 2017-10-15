@@ -99,9 +99,9 @@ def createBlogFile(name, template):
 
 def uploadBlog(blog_file):
 	res = api.add(temp_blogs+blog_file+'.html')
-	ipfs_path = '/ipfs/'+res['Hash']
-	published_data = api.name_publish(ipfs_path, resolve=True, lifetime='175200h')
-	return (res['Hash'], published_data['Name'])
+	#ipfs_path = '/ipfs/'+res['Hash']
+	#published_data = api.name_publish(ipfs_path, resolve=True, lifetime='175200h')
+	return res['Hash']
 
 
 def generateBlogKey():
