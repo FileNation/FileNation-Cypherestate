@@ -51,13 +51,15 @@ def newpost():
     text = form['text']
     title = form['title']
     key = form['key']
-    blog_id = db_handler.getBlogByKey(key)
-    if blog_id:
-        post_hash = db_handler.newPost(title, text, blog_id)
+    blog = db_handler.getBlogByKey(key)
+    blog_name = blog.name.lower()
+    if blog:
+        post_hash = db_handler.newPost(title, text, blog.id)
         return render_template(
             'submission.html',
             post_hash=post_hash,
-            blog_hash=blog.hash
+            blog_hash=blog.hash,
+            blog_name=blog_name
         )
     else:
         return render_template('error.html', error='Sorry! Bad key.')
