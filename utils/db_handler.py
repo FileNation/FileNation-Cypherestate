@@ -14,22 +14,23 @@ api = ipfsapi.connect('127.0.0.1', 5001)
 def getBlogByKey(key):
 	key = getSHA(key.encode('utf-8'))
 	blog = Blog.query.filter_by(key=key).first()
-	return True if blog else False
+	return blog.id if blog else False
 
 
 def newPost(title, text, blog_id):
 	template = fillPostTemplate(title, text)
 	post_file = createPostFile(title, template)
 	post_hash = uploadPost(post_file)
-	addPostToDB(post_hash, blog_id)
-	blog = Blog.get(id)
+	post = addPostToDB(post_hash, blog_id, title)
+	blog = Blog.query.get(blog_id)
 	addPostToBlog(post, blog)
 	return post_hash
 	
 	
 def fillPostTemplate(title, text):
-	template = render_template_string('post.html', title=title, text=text)
-	return template
+	template = open(post_template).read()
+	filled = render_template_string(template, title=title, text=text)
+	return filled
 
 
 def createPostFile(title, template):
@@ -46,41 +47,47 @@ def uploadPost(post_file):
 	return post_hash
 
 
-def addPostToDB(post_hash, blog_id):
-	post = Post(post_hash, blog_id)
+def addPostToDB(post_hash, blog_id, title):
+	post = Post(post_hash, blog_id, title)
 	db.session.add(post)
 	db.session.commit()
+	return post
 
 
 def newBlog(author, name):
 	template = fillBlogTemplate(author, name)
 	blog_file = createBlogFile(name, template)
-	blog_hash, ipns = uploadBlog(blog_file)
+	blog_hash = uploadBlog(blog_file)
 	key = generateBlogKey() 
 	hashed_key = getSHA(key)
-	addBlogToDB(ipns, blog_hash, hashed_key, name, author)
-	return (key, ipns)
+	addBlogToDB(blog_hash, hashed_key, name, author)
+	return key
 
 def addPostToBlog(post, blog):
 	template = fillBlogPosts(blog)
 	file = createBlogFile(blog.name, template)
-	blog_hash, ipns = uploadBlog(blog_file)
+	blog_hash = uploadBlog(file)
 	blog.hash = blog_hash
-	blog.ipns = ipns
 	db.session.commit()
 
 def fillBlogPosts(blog):
 	posts = Post.query.filter_by(blog_id=blog.id)
-	template = render_template_string('blog.html', blog, posts)
-	return template
+	template = open(blog_template).read()
+	filled = render_template_string(
+		 template,
+		 blog = blog,
+		 posts = posts
+	)
+	return filled
 
 def fillBlogTemplate(author, name):
-	template = render_template_string(
-		'blog.html',
-	 	title=title, 
-	 	author=author
+	template = open(blog_template).read()
+	filled = render_template_string(
+		template,
+	 	title = title, 
+	 	author = author
 	 )
-	return template
+	return filled
 
 
 def createBlogFile(name, template):
@@ -92,9 +99,9 @@ def createBlogFile(name, template):
 
 def uploadBlog(blog_file):
 	res = api.add(temp_blogs+blog_file+'.html')
-	ipfs_path = '/ipfs/'+res['Hash']
-	published_data = api.name_publish(ipfs_path, resolve=True, lifetime='175200h')
-	return (res['Hash'], published_data['Name'])
+	#ipfs_path = '/ipfs/'+res['Hash']
+	#published_data = api.name_publish(ipfs_path, resolve=True, lifetime='175200h')
+	return res['Hash']
 
 
 def generateBlogKey():
@@ -104,8 +111,8 @@ def generateBlogKey():
 	return key
 
 
-def addBlogToDB(ipns, blog_hash, key, name, author):
-	blog = Blog(ipns, blog_hash, key, name, author)
+def addBlogToDB(blog_hash, key, name, author):
+	blog = Blog(blog_hash, key, name, author)
 	db.session.add(blog)
 	db.session.commit()
 
