@@ -36,11 +36,11 @@ def submission():
     return render_template('submission.html')
 
 
-@app.route('/blog/<blog_name>/')
+@app.route('/<blog_name>/')
 def blog(blog_name):
     blog = db_handler.getBlogByName(blog_name)
     if blog:
-        return redirect(gateway + blog.hash + '/')
+        return redirect(values.gateway + blog.hash + '/')
     else:
         return render_template('error.html', error='Bad Name')
 
@@ -74,8 +74,9 @@ def newblog():
         if error:
             return render_template('error.html', error=error)
 
-        key, ipns = db_handler.newBlog(author, blog_name)
-        return render_template('new_blog.html', key=key, adress=ipns)
+        key, hash = db_handler.newBlog(author, blog_name)
+        name = blog_name.replace(' ','-')
+        return render_template('new_blog.html', key=key, adress=hash, name=name)
 
     else:
         return render_template('new_blog.html')
