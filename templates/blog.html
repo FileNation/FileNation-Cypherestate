@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link href='https://cypherestate.org/static/css/milligram.min.css' rel="stylesheet">
-  <link href='https://cypherestate.org/static/css/normalize.css' rel="stylesheet">
+  <link href='https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css' rel="stylesheet">
+  <link href='https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css' rel="stylesheet">
   <link href='https://cypherestate.org/static/css/main.css' rel="stylesheet">
   <!-- WYSIWYG editor -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
@@ -12,6 +12,176 @@
   <link rel="icon" href="https://cypherestate.org/static/img/icon_32.png"/>
 
   <title>Cypherestate</title>
+  <style>
+    /* MAIN.CSS */
+    #new-post {
+      margin: auto;
+      width: 60%;
+      font-size: 1.2em;
+    }
+
+    #footer{
+      margin-top:8rem;
+      margin-bottom: 3rem;
+    }
+
+    .manifesto {
+      padding:0!important;
+      margin-top:0!important;
+      margin-bottom:0!important;
+      margin-right:1.5em;
+      margin-left:1.5em;
+      font-size: 1em;
+      text-transform: none !important;
+    }
+
+    .header {
+      line-height:5em;
+      padding:3rem;
+      margin-bottom:-3rem;
+      margin-right:5%;
+      margin-left:2.5%;
+      text-align: center;
+    }
+
+    .header > * {
+      vertical-align:middle;
+    }
+
+    .logo {
+      max-height:5em;
+    }
+
+    .edgeless{
+      border: none transparent!important;
+      color:#464444!important;
+    }
+
+    .body-post{
+      min-height:50%;
+    }
+
+    .form-hash {
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    .form-text {
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    .footnote {
+      font-size: 0.7em;
+    }
+
+    #new-blog-footnote {
+      margin-left: 1%;
+      margin-top: 1%;
+    }
+
+    .form-verify {
+      font-size: 0.7em;
+      margin-left: 1%;
+      margin-top: 1%;
+    }
+
+    br {
+      -webkit-user-select: none;  
+      -moz-user-select: none;    
+      -ms-user-select: none;      
+      user-select: none;
+    }
+
+    ul.posts-list{
+      list-style: none;
+      list-style-type: none;
+      font-size: 0.95em;
+      margin-top:3rem;
+    }
+    ul.posts-list li{
+      margin-bottom: 5rem
+    }
+    ul.posts-list li a{
+      color:inherit;
+    }
+    ul.posts-list li a{
+      color:inherit;
+      text-decoration: none;
+      opacity:0.75;
+    }
+
+    .key-display {
+      font-size: 0.7em;
+    }
+
+    .top-right{
+      padding-right:1.5rem;
+      padding-left:1.5rem;
+    }
+
+    .about{
+      font-weight: bold;
+      color:#727272;
+      vertical-align: middle;
+    }
+    .about:hover{
+      color:#918f8f;
+    }
+
+    .terms-paragraph {
+      font-size: 0.8em;
+    }
+
+    @media (max-width: 425px) {
+        #new-post {
+        width: 90%;
+        font-size: 1.1em;
+      }
+      .logo-container{
+        text-align:center;
+        max-width:30%;
+        float:none!important;
+        display:inline-block!important;
+      }
+      h1{font-size:3.3rem!important;}
+      h2{font-size:2.7rem!important;}
+      h3{font-size:2.2rem!important;}
+
+    }
+
+    #donation-subtitle {
+      font-size: 1em;
+      letter-spacing: 0.01em;
+    }
+
+    .crypto-icon {
+      width: 1.1em;
+      height: 1.1em;
+      margin-right: 0.7em;
+      float: left;
+      margin-top: 0.55%;
+    }
+
+    .crypto-address {
+      font-size: 0.8em;
+      float: right;
+    }
+
+    .crypto-space {
+      min-width: 520px;
+    }
+
+    .inserted-hash {
+      font-size: 0.8em;
+    }
+  </style>
 </head>
 
 <body>
