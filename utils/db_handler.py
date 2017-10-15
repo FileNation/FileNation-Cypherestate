@@ -14,11 +14,11 @@ api = ipfsapi.connect('127.0.0.1', 5001)
 def getBlogByKey(key):
     key = getSHA(key.encode('utf-8'))
     blog = Blog.query.filter_by(key=key).first()
-    return blog.id if blog else False
+    return blog if blog else False
 
 
 def getBlogByName(name):
-    blog = Blog.query.filter_by(name=name)
+    blog = Blog.query.filter_by(name=name).first()
     return blog if blog else False
 
 
@@ -64,9 +64,9 @@ def newBlog(author, name):
     blog_file = createBlogFile(name, template)
     blog_hash = uploadBlog(blog_file)
     key = generateBlogKey()
-    hashed_key = getSHA(key)
+    hashed_key = getSHA(key.encode('utf-8'))
     addBlogToDB(blog_hash, hashed_key, name, author)
-    return key
+    return (key, blog_hash)
 
 
 def addPostToBlog(post, blog):
@@ -92,8 +92,7 @@ def fillBlogTemplate(author, name):
     template = open(blog_template).read()
     filled = render_template_string(
         template,
-        title=title,
-        author=author
+        blog={'name':name,'author':author}
     )
     return filled
 
