@@ -162,3 +162,7 @@ ul.posts-list li a{
 .crypto-space {
 	min-width: 520px;
 }
+
+.inserted-hash {
+	font-size: 0.8em;
+}
