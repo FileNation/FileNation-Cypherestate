@@ -1,9 +1,9 @@
-# Cypherestate
-#### What is Cypherestate?
+# CypherEstate
+#### What is CypherEstate?
 
->Cypherestate is a decentralized blogging site based on IPFS. Users can create their own personal blog, free of charge, and post anything they have in mind. No censorship, no moderation. Neither Cypherestate nor government agencies can remove what has been posted on the platform.
+>CypherEstate is a decentralized blogging site based on IPFS. Users can create their own personal blog, free of charge, and post anything they have in mind. No censorship, no moderation. Neither CypherEstate nor government agencies can remove what has been posted on the platform.
 
-#### Why Cypherestate?
+#### Why CypherEstate?
 
 >The rise of the internet marked the start of the information era. Emphasis on information. We believe anyone should be free to express their ideas, regardless of their point of view. Traditional journaling sites are becoming increasingly restrictive, submitting to political and corporate pressure.
 
