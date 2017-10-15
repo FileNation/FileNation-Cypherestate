@@ -35,9 +35,9 @@
     <ul class="posts-list">
         {%for post in posts%}
           <li>
-            <a href=''>
-              <h3 class='post-title'>{{post.title}}</h3>\
-              <p class='post-text'>{{post.text}}</p>\
+            <a href='https://ipfs.io/ipfs/'{{post.post_hash}}>
+              <h3 class='post-title'>{{post.title}}</h3>
+              <!--<p class='post-text'>{{post.text}}</p>\-->
             </a>
           </li>
         {%endfor%}
