@@ -23,18 +23,24 @@ def getBlogByName(name):
 
 
 def newPost(title, text, blog_id):
-    template = fillPostTemplate(title, text)
+    blog = Blog.query.get(blog_id)
+    template = fillPostTemplate(title, text, blog)
     post_file = createPostFile(title, template)
     post_hash = uploadPost(post_file)
     post = addPostToDB(post_hash, blog_id, title)
-    blog = Blog.query.get(blog_id)
     addPostToBlog(post, blog)
     return post_hash
 
 
-def fillPostTemplate(title, text):
+def fillPostTemplate(title, text, blog):
     template = open(post_template).read()
-    filled = render_template_string(template, title=title, text=text)
+    filled = render_template_string(
+        template, 
+        title=title, 
+        text=text, 
+        author=blog.author,
+        blog_address=blog.hash
+    )
     return filled
 
 
