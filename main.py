@@ -63,7 +63,8 @@ def newpost():
             'submission.html',
             post_hash=post_hash,
             blog_hash=blog.hash,
-            blog_name=blog.name
+            blog_name=blog.name,
+            author=blog.author
         )
     else:
         return render_template('error.html', error='Sorry! Bad key.')
