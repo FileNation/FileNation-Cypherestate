@@ -96,6 +96,7 @@ def fillBlogPosts(blog):
 
 def fillBlogTemplate(author, name):
     template = open(blog_template).read()
+    name = name.replace('--',' -').replace('-',' ')
     filled = render_template_string(
         template,
         blog={'name':name,'author':author}
@@ -170,5 +171,5 @@ def validateSubmission(blog_name, author_name):
     if blogExists(blog_name):
         return 'blog_exists'
     if authorExists(author_name):
-        return 'author_exists'
+        return 'author already exists !'
     return False

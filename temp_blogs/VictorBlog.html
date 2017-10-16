@@ -100,12 +100,12 @@
     }
 
     ul.posts-list{
+      list-style: none;
+      list-style-type: none;
       font-size: 0.95em;
       margin-top:3rem;
     }
     ul.posts-list li{
-      list-style-type: circle;
-      list-style: disc outside none;
       margin-bottom: 5rem
     }
     ul.posts-list li a{
@@ -113,6 +113,7 @@
     }
     ul.posts-list li a{
       color:inherit;
+      text-decoration: none;
       opacity:0.75;
     }
 
@@ -192,24 +193,24 @@
     </div>
     <div class="float-right">
       <!-- Outlined Button -->
-      <a href="https://cypherestate.org" class="button button-outline">New Post</a>
+      <a href=""><button class="button button-outline">New Post</button></a>
     </div>
   </div>
 
   <div id="new-post">
     <!-- Content here -->
     <br>
-    <center><a href=""><h2 class="blog-title"><b>{{blog.name}}</b></h2> by {{blog.author}}</a></center>
+    <center><a href=""><h2 class="blog-title"><b>VictorBlog</b></h2> by Victor</a></center>
 
     <ul class="posts-list">
-        {%for post in posts%}
+        
           <li>
-            <a href='https://ipfs.io/ipfs/{{post.post_hash}}'>
-              <h3 class='post-title'>{{post.title}}</h3>
-              <!--<p class='post-text'>{{post.text}}</p>\-->
+            <a href='https://ipfs.io/ipfs/QmRcQqsVDsDjSDFD9huuRWF9QHUN74UnS7G1Dky7o9cvM3'>
+              <h3 class='post-title'>My first post</h3>
+              <!--<p class='post-text'></p>\-->
             </a>
           </li>
-        {%endfor%}
+        
     </ul>
     <br>
 
@@ -219,7 +220,7 @@
     <div class="container center" id="footer">
 
     <!-- Float either directions -->
-      <center><a class="button button-outline" href="/howdoesitwork/">How does CypherEstate work?</a><a target="_blank" href="https://www.activism.net/cypherpunk/manifesto.html" class="button button-clear manifesto">Cypherpunk's manifesto</a></center>
+      <center>Copyright &copy; 2017 CypherEstate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="https://www.activism.net/cypherpunk/manifesto.html" class="button button-clear manifesto">Cypherpunks' manifesto</a></center>
   </div>
 </body>
 
