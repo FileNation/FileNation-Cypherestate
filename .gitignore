@@ -1,5 +1,7 @@
 __pycache__/
 utils/__pycache__/
+temp_blogs/
+temp_posts/
 *.pyc
 *__pycache__*
 *.py[cod]
