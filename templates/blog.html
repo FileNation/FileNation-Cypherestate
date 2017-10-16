@@ -202,7 +202,9 @@
   <div id="new-post">
     <!-- Content here -->
     <br>
-    <center><a href=""><h2 class="blog-title"><b>{{blog.name}}</b></h2> by {{blog.author}}</a></center>
+    <center>
+      <a href="https://cypherestate.org/{{author}}/"><h2 class="blog-title"><b>{{blog.name}}</b></h2> https://cypherestate.org/{{author}}/ <br> by {{blog.author}} </a>
+    </center>
 
     <ul class="posts-list">
         {%for post in posts%}
@@ -217,13 +219,19 @@
     </ul>
     <br>
 
+    <center>
+      <p><a href="https://cypherestate.org/{{author}}/">Updated Version</a> of this blog (use this link to share).</p>
+      <pre class="code prettyprint">https://cypherestate.org/{{author}}/</pre>
+    </center>
+
   </div>
+
 
 
     <div class="container center" id="footer">
 
     <!-- Float either directions -->
-      <center><a class="button button-outline" href="/howdoesitwork/">How does CypherEstate work?</a><a target="_blank" href="https://www.activism.net/cypherpunk/manifesto.html" class="button button-clear manifesto">Cypherpunk's manifesto</a></center>
+      <center><a class="button button-outline" href="https://cypherestate.org/howdoesitwork/">How does CypherEstate work?</a><a target="_blank" href="https://www.activism.net/cypherpunk/manifesto.html" class="button button-clear manifesto">Cypherpunk's manifesto</a></center>
   </div>
 </body>
 
