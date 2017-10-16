@@ -1,18 +1,19 @@
 function getCredit(){
-  var title = document.getElementById("Title").innerHTML;
-  var link = window.location.href;
+  var title = document.getElementById("title").innerHTML;
+  var author = document.getElementById("author_linkage").innerHTML;
+  var link = "https://cypherestate.org/"+author.replace(" ", "-")+"/";
   return [title, link]
 }
 
 function getTwitterMessage(title, link){
-  var defaulted = "https://cypherestate.org";
+  var defaulted = link;
   var loc = "https://twitter.com/intent/tweet/?text=";
-  var mess= "Censorless blogging on the Distributed Web @cypherestate. Check "+title+"&amp;url="+defaulted;
+  var mess= "Censorless blogging on the Distributed Web @cypherestate. Check "+title+" at &amp;url="+defaulted;
   return loc+mess
 } 
 
 function getTumblrMessage(title, link){
-  var defaulted = "https://cypherestate.org";
+  var defaulted = link;
   var loc = "https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=";
   var title = title;
   var mess = "Censorless blogging on the Distributed Web";
