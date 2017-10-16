@@ -21,7 +21,7 @@ def getBlogByName(name):
     blog = Blog.query.filter_by(name=name).first()
     return blog if blog else False
 
-def getBlogByAuthor(name):
+def getBlogByAuthor(author):
     blog = Blog.query.filter_by(author=author).first()
     return blog if blog else False
 
