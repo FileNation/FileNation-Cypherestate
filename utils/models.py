@@ -12,7 +12,7 @@ class Blog(db.Model):
     def __init__(self, blog_hash, key, name, author):
         self.key = key
         self.name = name.replace(' ', '-')
-        self.author = author
+        self.author = author.replace(' ','-')
         self.hash = blog_hash
 
 

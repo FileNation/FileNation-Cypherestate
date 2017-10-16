@@ -81,8 +81,8 @@ def newblog():
             return render_template('error.html', error=error)
 
         key, hash = db_handler.newBlog(author, blog_name)
-        name = blog_name.replace(' ','-')
-        return render_template('new_blog.html', key=key, adress=hash, name=name)
+        author = author.replace(' ','-')
+        return render_template('new_blog.html', key=key, adress=hash, author=author)
 
     else:
         return render_template('new_blog.html')
