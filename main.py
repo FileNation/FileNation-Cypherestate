@@ -40,9 +40,9 @@ def submission():
     return render_template('submission.html')
 
 
-@app.route('/<blog_name>/')
-def blog(blog_name):
-    blog = db_handler.getBlogByName(blog_name)
+@app.route('/<author>/')
+def blog(author):
+    blog = db_handler.getBlogByAuthor(author)
     print(blog)
     if blog:
         return redirect(values.gateway + blog.hash + '/')
