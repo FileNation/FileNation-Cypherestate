@@ -42,7 +42,7 @@ def fillPostTemplate(title, text, blog):
         template, 
         title=title, 
         text=text, 
-        author=blog.name,
+        author=blog.author,
         blog_address=blog.hash
     )
     return filled
