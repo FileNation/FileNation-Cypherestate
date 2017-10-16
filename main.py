@@ -43,6 +43,7 @@ def submission():
 @app.route('/<blog_name>/')
 def blog(blog_name):
     blog = db_handler.getBlogByName(blog_name)
+    print(blog)
     if blog:
         return redirect(values.gateway + blog.hash + '/')
     else:
@@ -56,14 +57,13 @@ def newpost():
     title = form['title']
     key = form['key']
     blog = db_handler.getBlogByKey(key)
-    blog_name = blog.name.lower()
     if blog:
         post_hash = db_handler.newPost(title, text, blog.id)
         return render_template(
             'submission.html',
             post_hash=post_hash,
             blog_hash=blog.hash,
-            blog_name=blog_name
+            blog_name=blog.name
         )
     else:
         return render_template('error.html', error='Sorry! Bad key.')

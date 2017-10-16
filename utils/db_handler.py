@@ -38,7 +38,7 @@ def fillPostTemplate(title, text, blog):
         template, 
         title=title, 
         text=text, 
-        author=blog.author,
+        author=blog.name,
         blog_address=blog.hash
     )
     return filled
