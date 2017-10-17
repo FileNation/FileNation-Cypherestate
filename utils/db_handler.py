@@ -1,4 +1,4 @@
-# coding=utf-8
+# coding: utf8
 
 from sqlalchemy import or_
 from main import app, db
@@ -53,7 +53,7 @@ def fillPostTemplate(title, text, blog):
 def createPostFile(title, template):
     temp_name = title.replace(' ', '-')
     temp_name = str(temp_name.encode('utf-8'))
-    outfile = open(temp + temp_name + '.html', 'w+', 'utf-8')
+    outfile = open(temp + temp_name + '.html', 'w+', encoding='utf-8')
     outfile.write(template)
     outfile.close()
     return temp_name
@@ -113,7 +113,7 @@ def fillBlogTemplate(author, name):
 
 def createBlogFile(name, template):
     temp_name = name.replace(' ', '-')
-    outfile = open(temp_blogs + temp_name + '.html', 'w+', 'utf-8')
+    outfile = open(temp_blogs + temp_name + '.html', 'w+', encoding='utf-8')
     outfile.write(template)
     outfile.close()
     return temp_name

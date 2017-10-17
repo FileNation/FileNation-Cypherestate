@@ -1,4 +1,4 @@
-# coding=utf-8
+# coding: utf8
 
 from flask import Flask, render_template, redirect, url_for, request
 from werkzeug import secure_filename
