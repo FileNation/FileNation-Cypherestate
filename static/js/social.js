@@ -1,14 +1,7 @@
-function getCredit(){
-  var title = document.getElementById("title").innerHTML;
-  var author = document.getElementById("author_linkage").innerHTML;
-  var link = "https://cypherestate.org/"+author.replace(" ", "-")+"/";
-  return [title, link]
-}
-
 function getTwitterMessage(title, link){
   var defaulted = link;
   var loc = "https://twitter.com/intent/tweet/?text=";
-  var mess= "Censorless blogging on the Distributed Web @cypherestate. Check "+title+" at &amp;url="+defaulted;
+  var mess= "Censorless blogging on the Distributed Web @cypherestate. Check: ''"+title+"'' at &amp;url="+defaulted;
   return loc+mess
 } 
 
@@ -44,8 +37,3 @@ function getMailMessage(title, link){
   var mess = "mailto:?subject=Cypherestate: "+title+"&amp;body=Hey! Check this out: "+link;
   return mess
 }
-
-var credit = getCredit();
-var title = credit[0];
-var link = credit[1];
-
