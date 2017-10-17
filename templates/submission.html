@@ -3,11 +3,12 @@
 {% block content %}
 
 <div id="new-post" style="text-align: justify;">
-	<h1 class="blog-title">Your post has been sent to IPFS.</h1>
-	<p>You can visit your post <a target="_blank" href="https://ipfs.io/ipfs/{{post_hash}}">here</a></p>
-	<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" style="float:left; margin-top: 0.35%;"><div class="inserted-hash" id="post-hash">{{post_hash}}</div></code><code class="code-content" style="float:right;"><a target="_blank" href="javascript:copyToClipboard('post-hash')"><i class="fa fa-clone" aria-hidden="true"></i></a></code></pre>
-	<p>You can visit your blog <a target="_blank" href="https://ipfs.io/ipfs/{{blog_hash}}">here</a> or at <a target="_blank" href="https://cypherestate.org/{{author}}/">cypherestate.org/{{author}}/</a></p>
-	<pre class="code prettyprint lang-md prettyprinted"><code class="code-content" style="float:left; margin-top: 0.35%;"><div class="inserted-hash" id="blog-hash">{{blog_hash}}</div></code><code class="code-content" style="float:right;"><a href="javascript:copyToClipboard('blog-hash')"><i class="fa fa-clone" aria-hidden="true"></i></a></code></pre>
+	<h1 class="blog-title">Your post has been published.</h1>
+	<br>
+	<h3>You can visit your <b>post</b> <a target="_blank" href="https://ipfs.io/ipfs/{{post_hash}}">here</a>.</h3>
+	<br>
+	<h3>You can visit your <b>blog</b> at <a target="_blank" href="https://cypherestate.org/{{author}}/">cypherestate.org/{{author}}/</a></h3>
+	
 </div>
 
 <script>
