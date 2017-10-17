@@ -52,6 +52,7 @@ def fillPostTemplate(title, text, blog):
 
 def createPostFile(title, template):
     temp_name = title.replace(' ', '-')
+    temp_name = temp_name.encode('utf-8')
     outfile = open(temp + temp_name + '.html', 'w+')
     outfile.write(template)
     outfile.close()
