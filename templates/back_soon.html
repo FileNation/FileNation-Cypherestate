@@ -3,24 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link href='/static/css/milligram.min.css' rel="stylesheet">
-  <link href='/static/css/normalize.css' rel="stylesheet">
+  <link href='https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css' rel="stylesheet">
+  <link href='https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css' rel="stylesheet">
   <link href='/static/css/main.css' rel="stylesheet">
   <!-- Favicon -->
   <link rel="icon" href="/static/img/icon_32.png"/>
-  <!-- Font Awesome -->
-  <script src="https://use.fontawesome.com/fc5688b80a.js"></script>
   <title>CypherEstate</title>
 </head>
 
 <body style="height:100%;width:100%;">
+	<!-- Clear any float  -->
+	<div class="clearfix header">
+	  <!-- Float either directions -->
+	  <div class="float-left logo-container">
+      <a href="/">
+	  	  <span><img src="/static/img/icon_512.png" size="50%" class="logo">
+      </a>
+	  </div>
+	</div>
 	<div id="content" class="error" style="margin:auto;min-height:60%;max-width:60%;padding-top:5rem;padding-bottom:5rem;">
-		  <h1>Oohhpss! It seems you've found an error...</h1>
-      <br>
-      <h3>Error: {{error}}</h3>
-      <br><br>
-      <center>
-        <a href="../" class="button button-outline manifesto">&nbsp;&nbsp;Go Home&nbsp;&nbsp;</a>
+	  <center>
+		<br>
+		<h2>Sorry, our server is under maintenance.</h2>
+		<br> 
+		<h3>We'll be back soon.</h3>
+      	<br><br>
+      	<h4>Meanwhile, you can follor us on twitter <a href="https://twitter.com/CypherEstate">@CypherEstate</a></h4>
+      	<br><br>
+      	<center>
       </center>
 	</div>
 

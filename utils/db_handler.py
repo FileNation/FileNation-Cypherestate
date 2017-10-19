@@ -180,3 +180,19 @@ def validateSubmission(blog_name, author_name):
     if authorExists(author_name):
         return 'author already exists !'
     return False
+
+def diasporaHandler():
+    posts = Post.query.all()
+
+    for post in posts:
+        url = gateway + post.post_hash
+        """
+            Do some stuff here, ideas:
+            - get html content w/ requests
+            · 1
+                - fill a brand new template with the data
+                - upload new template & update db
+            · 2
+                - create & upload new version (ipfs verisoning)
+        """ 
+    return True
