@@ -15,4 +15,4 @@
 
 >This project was born at the HackUPC Fall event of 2017. We launched the first version of the platform after 36 hours of intensive programming. The Polytechnic University of Catalonia and Major League Hacking provided us with a friendly development environment that enhanced creativity and teamwork. We are extremely grateful for all the work the organizers, sponsors and volunteers put into the hackathon.
 
-Authors: Oscar Cuatrecasas (https://github.com/Ocuatrec/), Eric Alcaide (https://github.com/ericAlcaide), Pol Baladas (https://github.com/PolBaladas/)
+Authors: Oscar Cuatrecasas ([@ocuatrec](https://github.com/Ocuatrec/)), Eric Alcaide ([@ericalcaide](https://github.com/ericAlcaide)) and Pol Baladas ([@polbaladas](https://github.com/PolBaladas/)).
