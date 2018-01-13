@@ -16,3 +16,11 @@
 >This project was born at the HackUPC Fall event of 2017. We launched the first version of the platform after 36 hours of intensive programming. The Polytechnic University of Catalonia and Major League Hacking provided us with a friendly development environment that enhanced creativity and teamwork. We are extremely grateful for all the work the organizers, sponsors and volunteers put into the hackathon.
 
 Authors: Oscar Cuatrecasas ([@ocuatrec](https://github.com/Ocuatrec/)), Eric Alcaide ([@ericalcaide](https://github.com/ericAlcaide)) and Pol Baladas ([@polbaladas](https://github.com/PolBaladas/)).
+
+## Future
+
+CypherEstate won the [Everis](https://www.everis.com/spain/es) hackathon prize for best blockchain hack/product to have a potentially meaningful impact in society.
+
+As of January 2018, CypherEstate is joining the [FileNation](https://github.com/FileNation/) project to add publishing and text-based features to the rapidly growing and exciting decentralized WeTransfer alternative.
+
+> (This does not imply that CypherEstate won't be able to keep working on its original development direction as a separate service).
