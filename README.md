@@ -23,4 +23,4 @@ CypherEstate won the [Everis](https://www.everis.com/spain/es) hackathon prize f
 
 As of January 2018, CypherEstate is joining the [FileNation](https://github.com/FileNation/) project to add publishing and text-based features to the rapidly growing and exciting decentralized WeTransfer alternative.
 
-> (This does not imply that CypherEstate won't be able to keep working on its original development direction as a separate service).
+> (This does not imply that CypherEstate won't be able to keep working on its original development direction as a separate service)
