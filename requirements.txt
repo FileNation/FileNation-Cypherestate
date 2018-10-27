@@ -8,7 +8,7 @@ Flask-Script==2.0.6
 Flask-SQLAlchemy==2.2
 idna==2.6
 ipfsapi==0.4.2.post1
-itsdangerous==0.24
+itsdangerous==1.1.0
 Jinja2==2.9.6
 Mako==1.0.7
 MarkupSafe==1.0
