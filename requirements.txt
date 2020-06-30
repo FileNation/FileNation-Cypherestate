@@ -6,7 +6,7 @@ Flask==0.12.1
 Flask-Migrate==2.0.4
 Flask-Script==2.0.6
 Flask-SQLAlchemy==2.2
-idna==2.6
+idna==2.10
 ipfsapi==0.4.2.post1
 itsdangerous==0.24
 Jinja2==2.9.6
